@@ -1,0 +1,54 @@
+:root {
+  /* Primary */
+  --Blue500: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+}
+
+.dark {
+  --bg-color: hsl(235, 21%, 11%);
+}
+
+* {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  font-size: 18px;
+  background-size: cover;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.display-flex {
+  display: flex;
+}
+.direction-column {
+  flex-direction: column;
+}
+.direction-row {
+  flex-direction: row;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.border-radius {
+  border-radius: 0.3rem;
+}
+.gap1 {
+  gap: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+}
