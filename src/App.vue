@@ -1,7 +1,16 @@
 <script setup></script>
 
 <template>
-  <h1>Multi step form</h1>
+  <div class="display-flex border-radius justify-content-center">
+    <multi-step-form
+      class="container display-flex border-radius justify-content-between"
+    ></multi-step-form>
+  </div>
+  <the-footer />
 </template>
 
-<style scoped></style>
+<style>
+.container {
+  width: 80vw;
+}
+</style>
