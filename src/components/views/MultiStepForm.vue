@@ -4,7 +4,7 @@ import SidebarSteps from "./SidebarSteps.vue";
 </script>
 
 <template>
-  <base-card class="multi-step-container display-flex direction-row gap1">
+  <base-card class="multi-step-container display-flex direction-row">
     <sidebar-steps></sidebar-steps>
     <step-navigation></step-navigation>
   </base-card>
@@ -16,5 +16,6 @@ import SidebarSteps from "./SidebarSteps.vue";
   padding: 1.5rem;
   width: 80vw;
   height: 70vh;
+  gap: 7rem;
 }
 </style>
