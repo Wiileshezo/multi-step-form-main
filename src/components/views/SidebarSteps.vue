@@ -41,11 +41,12 @@
   width: 20vw;
   box-sizing: border-box;
   padding: 2.5rem;
+  gap: 2rem;
 }
 
 .number {
   color: var(--White);
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   border: 1px solid var(--White);
   border-radius: 50%;
   font-size: 1rem;
