@@ -4,7 +4,6 @@ import StepPersonalInfo from "../steps/StepPersonalInfo.vue";
 
 <template>
   <div>
-    <h1>Step Navigation</h1>
     <step-personal-info></step-personal-info>
   </div>
 </template>
