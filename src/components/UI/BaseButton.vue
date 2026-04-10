@@ -20,7 +20,7 @@ button {
   border-radius: 0.6rem;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 @media screen and (min-width: 768px) {
