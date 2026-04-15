@@ -37,7 +37,7 @@
 .sidebar-container {
   background-image: url(@/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   width: 20vw;
   box-sizing: border-box;
   padding: 2.5rem;

@@ -11,6 +11,6 @@
 
 <style>
 .container {
-  width: 80vw;
+  width: 70vw;
 }
 </style>

@@ -12,11 +12,10 @@ import SidebarSteps from "./SidebarSteps.vue";
 
 <style scoped>
 .multi-step-container {
-  margin-top: 10vw;
+  margin-top: 7vw;
   padding: 1.5rem;
-  width: 80vw;
-  height: 70vh;
-  gap: 7rem;
+
+  gap: 1rem;
 }
 .card {
   background: var(--White);
