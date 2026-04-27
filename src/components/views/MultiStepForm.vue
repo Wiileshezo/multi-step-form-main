@@ -4,7 +4,8 @@ import SidebarSteps from "./SidebarSteps.vue";
 </script>
 
 <template>
-  <base-card class="multi-step-container display-flex direction-row card">
+  <!-- <base-card class="multi-step-container display-flex direction-row card"> -->
+  <base-card class="multi-step-container card">
     <sidebar-steps></sidebar-steps>
     <step-navigation></step-navigation>
   </base-card>
@@ -14,11 +15,19 @@ import SidebarSteps from "./SidebarSteps.vue";
 .multi-step-container {
   margin-top: 7vw;
   padding: 1.5rem;
-
   gap: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .card {
   background: var(--White);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .multi-step-container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
