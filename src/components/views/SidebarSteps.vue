@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="sidebar-container display-flex border-radius gap1">
+  <div class="sidebar-container-desktop border-radius">
     <div class="display-flex direction-row gap1 align-items-center">
       <h2 class="number">1</h2>
       <div class="display-flex direction-column step-side">
@@ -34,26 +34,23 @@
 </template>
 
 <style scoped>
-.sidebar-container {
+.sidebar-container-desktop {
   background-image: url(@/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 2rem;
-  flex-grow: 0.4;
+  flex-grow: 0.3;
+  display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 10vw;
 }
+
 .step-side {
   flex-grow: 0.5;
 }
-.number {
-  color: var(--White);
-  padding: 0.7rem 1rem;
-  border: 1px solid var(--White);
-  border-radius: 50%;
-  font-size: 1rem;
-}
+
 .step {
   color: var(--Grey500);
 }
@@ -62,9 +59,8 @@
   font-weight: 500;
 }
 @media (max-width: 600px) {
-  .sidebar-container {
-    background-image: url(@/images/bg-sidebar-mobile.svg);
-    flex-direction: row;
+  .sidebar-container-desktop {
+    display: none;
   }
 }
 </style>

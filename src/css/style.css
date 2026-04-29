@@ -68,5 +68,13 @@ body {
   gap: 1rem;
 }
 
+.number {
+  color: var(--White);
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--White);
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
 @media screen and (max-width: 700px) {
 }

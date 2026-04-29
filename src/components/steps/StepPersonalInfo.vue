@@ -42,7 +42,8 @@
 <style scoped>
 form {
   display: grid;
-  padding-inline: 4rem;
+  padding-inline: 3rem;
+  justify-content: center;
 }
 input,
 button,
@@ -72,15 +73,13 @@ label {
 }
 .btn-card {
   align-items: flex-end;
-  padding-top: 3rem;
+  padding-top: 6rem;
 }
-input {
-  width: 100%;
-}
+
 .text-input {
   padding: 0.8rem;
   border-radius: 0.5rem;
   border: 1px solid var(--Grey500);
-  width: 35vw;
+  width: 95%;
 }
 </style>
