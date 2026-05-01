@@ -31,7 +31,7 @@
         required
       />
     </base-card>
-    <base-card class="btn-card display-flex">
+    <base-card class="btn-card">
       <base-button class="next-btn" mode="primary" type="submit">
         Next Step
       </base-button>
@@ -42,8 +42,7 @@
 <style scoped>
 form {
   display: grid;
-  padding-inline: 3rem;
-  justify-content: center;
+  /* padding-inline: 5rem; */
 }
 input,
 button,
@@ -71,15 +70,16 @@ label {
   color: var(--Blue950);
   padding: 0.5rem 0;
 }
-.btn-card {
-  align-items: flex-end;
-  padding-top: 6rem;
-}
 
 .text-input {
   padding: 0.8rem;
   border-radius: 0.5rem;
   border: 1px solid var(--Grey500);
-  width: 95%;
+}
+
+@media (max-width: 600px) {
+  .btn-card {
+    display: none;
+  }
 }
 </style>

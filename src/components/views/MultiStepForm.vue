@@ -16,6 +16,11 @@ import SidebarSteps from "./SidebarSteps.vue";
     <sidebar-steps></sidebar-steps>
     <step-navigation></step-navigation>
   </base-card>
+  <base-card class="btn-card">
+    <base-button class="next-btn" mode="primary" type="submit">
+      Next Step
+    </base-button>
+  </base-card>
 </template>
 
 <style scoped>
@@ -35,6 +40,10 @@ import SidebarSteps from "./SidebarSteps.vue";
   display: none;
 }
 
+.btn-card {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .multi-step-container {
     flex-direction: column;
@@ -49,6 +58,9 @@ import SidebarSteps from "./SidebarSteps.vue";
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 3rem;
+  }
+  .btn-card {
+    display: flex;
   }
 }
 </style>
