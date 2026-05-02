@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <form class="gap1">
+  <form class="display-flex justify-content-center direction-column gap1">
     <h1 class="title-step1">Personal Info</h1>
     <p class="desc-step1">Please provide your name, email, and phone number.</p>
     <base-card class="form-group">
@@ -40,10 +40,6 @@
 </template>
 
 <style scoped>
-form {
-  display: grid;
-  /* padding-inline: 5rem; */
-}
 input,
 button,
 select,
@@ -59,7 +55,7 @@ textarea {
 }
 .desc-step1 {
   color: var(--Grey500);
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 3vw, 1.3rem);
 }
 .form-group {
   display: grid;

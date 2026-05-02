@@ -37,8 +37,6 @@ body {
   background-color: var(--Blue100);
 }
 #app {
-  display: grid;
-  place-content: center;
   place-items: center;
 }
 .cursor-pointer {
