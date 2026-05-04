@@ -1,10 +1,10 @@
 <script setup>
-import StepPersonalInfo from "../steps/StepPersonalInfo.vue";
+import Step1 from "../steps/Step1.vue";
 </script>
 
 <template>
   <div class="step-navigation-container display-flex gap1">
-    <step-personal-info></step-personal-info>
+    <step-1></step-1>
   </div>
 </template>
 
