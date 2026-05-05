@@ -58,7 +58,7 @@
   color: var(--White);
   font-weight: 500;
 }
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   .sidebar-container-desktop {
     display: none;
   }
