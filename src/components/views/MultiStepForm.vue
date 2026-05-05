@@ -1,50 +1,30 @@
 <script setup>
 import StepNavigation from "./StepNavigation.vue";
-import SidebarSteps from "./SidebarSteps.vue";
+import DesktopSidebar from "./DesktopSidebar.vue";
 </script>
 
 <template>
-  <div
-    class="sidebar-container-mobile display-flex justify-content-center gap1"
-  >
-    <div><h2 class="number">1</h2></div>
-    <div><h2 class="number">2</h2></div>
-    <div><h2 class="number">3</h2></div>
-    <div><h2 class="number">4</h2></div>
-  </div>
   <base-card class="multi-step-container display-flex card">
-    <sidebar-steps></sidebar-steps>
+    <desktop-sidebar></desktop-sidebar>
     <step-navigation></step-navigation>
-  </base-card>
-  <base-card class="btn-card">
-    <base-button class="next-btn" mode="primary" type="submit">
-      Next Step
-    </base-button>
   </base-card>
 </template>
 
 <style scoped>
 .multi-step-container {
-  margin-top: 6vw;
+  margin-top: 3rem;
   padding: 1.5rem;
   gap: 1rem;
   flex-direction: row;
   width: 70vw;
+  z-index: 999;
 }
 .card {
   background: var(--White);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-container-mobile {
-  display: none;
-}
-
-.btn-card {
-  display: none;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   .multi-step-container {
     flex-direction: column;
   }
