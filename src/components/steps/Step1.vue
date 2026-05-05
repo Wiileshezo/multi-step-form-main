@@ -55,7 +55,7 @@ textarea {
 }
 .desc-step1 {
   color: var(--Grey500);
-  font-size: clamp(1.2rem, 3vw, 1.3rem);
+  font-size: clamp(1rem, 3vw, 1.3rem);
 }
 .form-group {
   display: grid;
@@ -73,7 +73,7 @@ label {
   border: 1px solid var(--Grey500);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   .btn-card {
     display: none;
   }
