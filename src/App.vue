@@ -4,10 +4,8 @@ import MobileNavbar from "./components/views/MobileNavbar.vue";
 </script>
 
 <template>
-  <mobile-navbar>
-    <MultiStepForm class="multi-step-form" />
-  </mobile-navbar>
-
+  <mobile-navbar />
+  <MultiStepForm class="multi-step-form" />
   <base-card class="btn-card">
     <base-button class="next-btn" mode="primary" type="submit">
       Next Step
@@ -17,14 +15,21 @@ import MobileNavbar from "./components/views/MobileNavbar.vue";
   <the-footer />
 </template>
 
-<style>
+<style scoped>
 .multi-step-form {
   padding-inline: 2rem;
 }
 
 .btn-card {
   display: none;
-  padding: 6rem 2rem 0 0;
-  z-index: 999;
+  padding: 4rem 0 0;
+  place-self: center;
+  width: 80vw;
+}
+
+@media (max-width: 770px) {
+  .btn-card {
+    display: flex;
+  }
 }
 </style>
