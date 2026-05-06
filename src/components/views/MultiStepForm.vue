@@ -12,12 +12,12 @@ import DesktopSidebar from "./DesktopSidebar.vue";
 
 <style scoped>
 .multi-step-container {
-  margin-top: 3rem;
   padding: 1.5rem;
   gap: 1rem;
   flex-direction: row;
   width: 70vw;
-  z-index: 999;
+
+  margin-top: 5rem;
 }
 .card {
   background: var(--White);
@@ -27,6 +27,7 @@ import DesktopSidebar from "./DesktopSidebar.vue";
 @media (max-width: 770px) {
   .multi-step-container {
     flex-direction: column;
+    margin-top: -17vh;
   }
 
   .sidebar-container-mobile {
@@ -38,9 +39,6 @@ import DesktopSidebar from "./DesktopSidebar.vue";
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 3rem;
-  }
-  .btn-card {
-    display: flex;
   }
 }
 </style>

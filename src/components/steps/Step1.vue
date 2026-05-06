@@ -72,8 +72,19 @@ label {
   border-radius: 0.5rem;
   border: 1px solid var(--Grey500);
 }
+.next-btn {
+  margin-top: 5rem;
+}
 
+@media (max-width: 1300px) {
+  .desc-step1 {
+    font-size: 0.8rem;
+  }
+}
 @media (max-width: 770px) {
+  .desc-step1 {
+    font-size: 1rem;
+  }
   .btn-card {
     display: none;
   }
