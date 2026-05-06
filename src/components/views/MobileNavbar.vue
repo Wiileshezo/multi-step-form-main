@@ -2,16 +2,13 @@
 
 <template>
   <div
-    class="sidebar-container-mobile display-flex direction-column justify-content-center gap1"
+    class="sidebar-container-mobile display-flex direction-column align-items-center gap1"
   >
-    <div class="display-flex direction-row justify-content-center gap1">
+    <div class="display-flex direction-row gap1">
       <h2 class="number">1</h2>
       <h2 class="number">2</h2>
       <h2 class="number">3</h2>
       <h2 class="number">4</h2>
-    </div>
-    <div class="display-flex direction-column">
-      <slot></slot>
     </div>
   </div>
 </template>
@@ -26,8 +23,9 @@
     display: flex;
 
     padding-top: 3rem;
+    justify-content: flex-start;
 
-    place-items: center;
+    /* place-items: center; */
     z-index: 999;
     width: 100vw;
     min-height: 30vh;
