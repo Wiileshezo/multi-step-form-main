@@ -1,43 +1,64 @@
 import { defineStore } from "pinia";
+import { reactive, ref } from "vue";
 
-export const useFormStore = defineStore("form", {
-  state: () => ({
-    step: 1,
+export const useFormStore = defineStore("form)", () => {
+  // state
+  const users = ref([]);
 
-    personalInfo: {
-      name: "",
-      email: "",
-      phone: "",
-    },
+  const form = reactive({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const errors = reactive({
+    name: false,
+    email: false,
+    phone: false,
+  });
 
-    plan: {
-      type: "",
-      billing: "monthly",
-    },
+  // actions
+  function addUser() {
+    errors.name = false;
+    errors.email = false;
+    errors.phone = false;
 
-    addons: [],
-  }),
+    let valid = true;
 
-  actions: {
-    nextStep() {
-      if (this.step < 5) this.step++;
-    },
+    if (!form.name || /\d/.test(form.name)) {
+      errors.name = true;
+      valid = false;
+    }
 
-    prevStep() {
-      if (this.step > 1) this.step--;
-    },
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(form.email)) {
+      errors.email = true;
+      valid = false;
+    }
 
-    setPlan(plan) {
-      this.plan.type = plan;
-    },
+    const phonePattern = /^[0-9]+$/;
+    if (!phonePattern.test(form.phone)) {
+      errors.phone = true;
+      valid = false;
+    }
 
-    toggleAddon(addon) {
-      const index = this.addons.indexOf(addon);
-      if (index === -1) {
-        this.addons.push(addon);
-      } else {
-        this.addons.splice(index, 1);
-      }
-    },
-  },
+    if (!valid) return;
+
+    users.value.push({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+    });
+
+    form.name = "";
+    form.email = "";
+    form.phone = "";
+  }
+
+  return {
+    users,
+    form,
+    errors,
+
+    addUser,
+  };
 });
