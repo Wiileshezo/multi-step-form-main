@@ -73,8 +73,8 @@ body {
   border-radius: 50%;
   font-size: 1rem;
 
-  padding-block: clamp(0.3rem, 3vw, 0.5rem);
-  padding-inline: clamp(0.8rem, 3vw, 1rem);
+  padding-block: clamp(0.5rem, 5vw, 0.7rem);
+  padding-inline: clamp(0.9rem, 3vw, 1rem);
 }
 .btn-card {
   display: flex;
