@@ -76,10 +76,27 @@ body {
   padding-block: clamp(0.5rem, 5vw, 0.7rem);
   padding-inline: clamp(0.9rem, 3vw, 1rem);
 }
+
+.title-step {
+  font-size: 2.3rem;
+  font-weight: 700;
+  padding-top: 3rem;
+}
+.desc-step {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
 .btn-card {
   display: flex;
   place-self: normal;
   align-items: flex-end;
+}
+
+h1 {
+  color: var(--Blue950);
+}
+p {
+  color: var(--Grey500);
 }
 
 @media screen and (max-width: 700px) {

@@ -23,6 +23,12 @@ button {
   font-family: "Ubuntu", sans-serif;
 }
 
+.flat {
+  background-color: transparent;
+  color: var(--Grey500);
+  border: none;
+}
+
 @media screen and (min-width: 768px) {
 }
 </style>
