@@ -9,8 +9,8 @@ const formStore = useFormStore();
     class="display-flex justify-content-center direction-column gap1"
     @submit.prevent="formStore.addUser()"
   >
-    <h1 class="title-step1">Personal Info</h1>
-    <p class="desc-step1">Please provide your name, email, and phone number.</p>
+    <h1 class="title-step">Personal Info</h1>
+    <p class="desc-step">Please provide your name, email, and phone number.</p>
     <base-card class="form-group">
       <label>Name</label>
       <input
@@ -45,8 +45,12 @@ const formStore = useFormStore();
       />
     </base-card>
     <base-card class="btn-card">
-      <base-button class="next-btn" mode="primary" type="submit">
-        <!-- @click="formStore.addUser()" -->
+      <base-button
+        class="next-btn"
+        mode="primary"
+        type="submit"
+        @click="formStore.addUser()"
+      >
         Next Step
       </base-button>
     </base-card>
@@ -61,16 +65,6 @@ textarea {
   font: inherit;
 }
 
-.title-step1 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: var(--Blue950);
-  padding-top: 3rem;
-}
-.desc-step1 {
-  color: var(--Grey500);
-  font-size: clamp(1rem, 3vw, 1.3rem);
-}
 .form-group {
   display: grid;
   padding-block: 0.3rem;
@@ -92,25 +86,19 @@ label {
   outline: 2px solid var(--Purple600);
   /* border: 1px solid var(--Purple600); */
 }
-.next-btn {
-  margin-top: 5rem;
-}
 
 .error {
   outline: 2px solid var(--Red500);
 }
 
 @media (max-width: 1300px) {
-  .desc-step1 {
+  .desc-step {
     font-size: 0.8rem;
   }
 }
 @media (max-width: 770px) {
-  .desc-step1 {
+  .desc-step {
     font-size: 1rem;
-  }
-  .btn-card {
-    display: none;
   }
 }
 </style>
