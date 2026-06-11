@@ -54,11 +54,29 @@ export const useFormStore = defineStore("form)", () => {
     form.phone = "";
   }
 
+  const step = ref(1);
+
+  function nextStep() {
+    if (step.value < 5) {
+      step.value++;
+    }
+  }
+
+  function prevStep() {
+    if (step.value > 1) {
+      step.value--;
+    }
+  }
+
   return {
     users,
     form,
     errors,
 
     addUser,
+
+    step,
+    nextStep,
+    prevStep,
   };
 });

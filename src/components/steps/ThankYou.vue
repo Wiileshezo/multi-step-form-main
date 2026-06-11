@@ -1,7 +1,10 @@
 <script setup></script>
 
 <template>
-  <div class="display-flex justify-content-center direction-column gap1">
+  <div
+    class="display-flex justify-content-center direction-column align-items-center gap1"
+  >
+    <img src="@/images/icon-thank-you.svg" alt="thank you" class="thax-img" />
     <h1 class="title-step2">Thank You!</h1>
     <p class="desc-step2">
       Thank you for confirming your subscription! We hope you have fun using our
@@ -11,4 +14,11 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+div {
+  text-align: center;
+}
+.thax-img {
+  width: 8vw;
+}
+</style>

@@ -1,61 +1,46 @@
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 import Step1 from "../steps/Step1.vue";
 import Step2 from "../steps/Step2.vue";
 import Step3 from "../steps/Step3.vue";
 import Step4 from "../steps/Step4.vue";
-// import ThankYou from "../steps/ThankYou.vue";
+import ThankYou from "../steps/ThankYou.vue";
 
 import { useFormStore } from "@/store/formStore";
 
 const formStore = useFormStore();
-
-const step = ref(1);
 
 const steps = {
   1: Step1,
   2: Step2,
   3: Step3,
   4: Step4,
+  5: ThankYou,
 };
 
-const currentComponent = computed(() => steps[step.value]);
-
-function nextStep() {
-  if (step.value < 4) {
-    step.value++;
-  }
-}
-
-function prevStep() {
-  if (step.value > 1) {
-    step.value--;
-  }
-}
+const currentComponent = computed(() => steps[formStore.step]);
 </script>
 
 <template>
   <div class="step-navigation-container display-flex gap1">
-    <form @submit.prevent="formStore.addUser()">
+    <form @submit.prevent>
       <component :is="currentComponent" />
-      <!-- <thank-you v-if="step === 5"></thank-you> -->
-
-      <base-card class="btn-card">
+      <base-card class="btn-card btn-position display-flex gap1">
         <base-button
           class="next-btn"
-          type="submit"
-          v-if="step > 1"
-          @click="prevStep"
+          type="button"
+          mode="flat"
+          @click="formStore.prevStep"
+          v-if="formStore.step !== 1 && formStore.step !== 5"
         >
           Go Back
         </base-button>
         <base-button
           class="next-btn"
-          mode="flat"
-          type="submit"
-          v-if="step > 1"
-          @click="nextStep"
+          type="button"
+          @click="formStore.nextStep"
+          v-if="formStore.step < 5"
         >
           Next Step
         </base-button>
