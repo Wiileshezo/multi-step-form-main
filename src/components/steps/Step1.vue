@@ -1,14 +1,13 @@
 <script setup>
 import { useFormStore } from "@/store/formStore";
+// import { computed } from "vue";
 
 const formStore = useFormStore();
+// const step = computed(() => formStore.step);
 </script>
 
 <template>
-  <form
-    class="display-flex justify-content-center direction-column gap1"
-    @submit.prevent="formStore.addUser()"
-  >
+  <form class="display-flex justify-content-center direction-column gap1">
     <h1 class="title-step">Personal Info</h1>
     <p class="desc-step">Please provide your name, email, and phone number.</p>
     <base-card class="form-group">
@@ -43,16 +42,6 @@ const formStore = useFormStore();
         v-model="formStore.form.phone"
         required
       />
-    </base-card>
-    <base-card class="btn-card">
-      <base-button
-        class="next-btn"
-        mode="primary"
-        type="submit"
-        @click="formStore.addUser()"
-      >
-        Next Step
-      </base-button>
     </base-card>
   </form>
 </template>
@@ -99,6 +88,9 @@ label {
 @media (max-width: 770px) {
   .desc-step {
     font-size: 1rem;
+  }
+  .btn-card {
+    display: none;
   }
 }
 </style>

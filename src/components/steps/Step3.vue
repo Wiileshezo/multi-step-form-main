@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useFormStore } from "@/store/formStore";
+
+const formStore = useFormStore();
+</script>
 
 <template>
   <div class="display-flex justify-content-center direction-column gap1">
