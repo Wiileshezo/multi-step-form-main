@@ -33,15 +33,15 @@ const currentComponent = computed(() => steps[formStore.step]);
           type="button"
           mode="flat"
           @click="formStore.prevStep"
-          v-if="formStore.step !== 1 && formStore.step !== 5"
+          v-if="formStore.showGoBack"
         >
           Go Back
         </base-button>
         <base-button
           class="next-btn"
           type="button"
-          @click="formStore.nextStep"
-          v-if="formStore.step < 5"
+          @click="formStore.handleNext"
+          v-if="formStore.showNextStep"
         >
           Next Step
         </base-button>
