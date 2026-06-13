@@ -3,7 +3,6 @@ import { useFormStore } from "@/store/formStore";
 // import { computed } from "vue";
 
 const formStore = useFormStore();
-// const step = computed(() => formStore.step);
 </script>
 
 <template>

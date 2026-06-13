@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, KeepAlive } from "vue";
 
 import Step1 from "../steps/Step1.vue";
 import Step2 from "../steps/Step2.vue";
@@ -25,10 +25,11 @@ const currentComponent = computed(() => steps[formStore.step]);
 <template>
   <div class="step-navigation-container display-flex gap1">
     <form @submit.prevent>
-      <component :is="currentComponent" />
+      <KeepAlive>
+        <component :is="currentComponent" />
+      </KeepAlive>
       <base-card class="btn-card btn-position display-flex gap1">
         <base-button
-          class="next-btn"
           type="button"
           mode="flat"
           @click="formStore.prevStep"
@@ -57,6 +58,8 @@ const currentComponent = computed(() => steps[formStore.step]);
 
 .next-btn {
   margin-top: 5rem;
+
+  margin-left: auto;
 }
 
 @media (max-width: 770px) {
