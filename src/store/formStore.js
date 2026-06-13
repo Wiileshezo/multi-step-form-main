@@ -1,22 +1,34 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 
-export const useFormStore = defineStore("form)", () => {
+export const useFormStore = defineStore("form", () => {
+  // =================
   // state
+  // =================
   const users = ref([]);
+
+  const step = ref(1);
+
+  const isStep1Valid = ref(false);
+  const isStep2Valid = ref(false);
+  const isStep3Valid = ref(false);
+  const isStep4Valid = ref(false);
 
   const form = reactive({
     name: "",
     email: "",
     phone: "",
   });
+
   const errors = reactive({
     name: false,
     email: false,
     phone: false,
   });
 
-  // actions
+  // =================
+  // actions - validation
+  // =================
   function addUser() {
     errors.name = false;
     errors.email = false;
@@ -41,7 +53,9 @@ export const useFormStore = defineStore("form)", () => {
       valid = false;
     }
 
-    if (!valid) return;
+    isStep1Valid.value = valid;
+
+    if (!valid) return false;
 
     users.value.push({
       name: form.name,
@@ -49,12 +63,57 @@ export const useFormStore = defineStore("form)", () => {
       phone: form.phone,
     });
 
-    form.name = "";
-    form.email = "";
-    form.phone = "";
+    return true;
   }
 
-  const step = ref(1);
+  function addPlan() {
+    isStep2Valid.value = true;
+    return true;
+  }
+
+  function addAddOns() {
+    isStep3Valid.value = true;
+    return true;
+  }
+
+  function addSummary() {
+    isStep4Valid.value = true;
+    return true;
+  }
+
+  // =================
+  // computed UI state
+  // =================
+  const showGoBack = computed(() => {
+    return step.value > 1 && step.value < 5;
+  });
+
+  const showNextStep = computed(() => {
+    return step.value < 5;
+  });
+
+  // =================
+  // navigation logic
+  // =================
+  function handleNext() {
+    switch (step.value) {
+      case 1:
+        if (addUser()) nextStep();
+        break;
+
+      case 2:
+        if (addPlan()) nextStep();
+        break;
+
+      case 3:
+        if (addAddOns()) nextStep();
+        break;
+
+      case 4:
+        if (addSummary()) nextStep();
+        break;
+    }
+  }
 
   function nextStep() {
     if (step.value < 5) {
@@ -69,13 +128,29 @@ export const useFormStore = defineStore("form)", () => {
   }
 
   return {
+    // state
     users,
+    step,
     form,
     errors,
 
-    addUser,
+    // validation state
+    isStep1Valid,
+    isStep2Valid,
+    isStep3Valid,
+    isStep4Valid,
 
-    step,
+    // ui
+    showGoBack,
+    showNextStep,
+
+    // actions
+    addUser,
+    addPlan,
+    addAddOns,
+    addSummary,
+
+    handleNext,
     nextStep,
     prevStep,
   };
