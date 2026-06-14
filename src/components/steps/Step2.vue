@@ -57,7 +57,6 @@ const formStore = useFormStore();
     </div>
     <div class="display-flex align-items-center justify-content-center gap1">
       <h3>Monthly</h3>
-
       <label class="switch">
         <input type="checkbox" />
         <span class="slider"></span>
