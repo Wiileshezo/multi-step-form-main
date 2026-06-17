@@ -92,6 +92,10 @@ export const useFormStore = defineStore("form", () => {
     return step.value < 5;
   });
 
+  const nextBtn = computed(() => {
+    return step.value === 4 ? "Confirm" : "Next Step";
+  });
+
   // =================
   // navigation logic
   // =================
@@ -143,7 +147,7 @@ export const useFormStore = defineStore("form", () => {
     // ui
     showGoBack,
     showNextStep,
-
+    nextBtn,
     // actions
     addUser,
     addPlan,

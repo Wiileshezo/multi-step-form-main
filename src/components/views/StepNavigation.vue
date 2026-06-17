@@ -43,7 +43,7 @@ const currentComponent = computed(() => steps[formStore.step]);
           @click="formStore.handleNext"
           v-if="formStore.showNextStep"
         >
-          Next Step
+          {{ formStore.nextBtn }}
         </base-button>
       </base-card>
     </form>

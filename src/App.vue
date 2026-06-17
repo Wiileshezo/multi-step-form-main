@@ -9,16 +9,6 @@ const formStore = useFormStore();
 <template>
   <mobile-navbar />
   <MultiStepForm class="multi-step-form" />
-  <!-- <base-card class="btn-card">
-    <base-button
-      class="next-btn"
-      mode="primary"
-      type="button"
-      @click="formStore.nextStep"
-    >
-      Next Step
-    </base-button>
-  </base-card> -->
   <base-card class="btn-card btn-position display-flex gap1">
     <base-button
       type="button"
@@ -48,13 +38,14 @@ const formStore = useFormStore();
 
 .btn-card {
   display: none;
-  padding: 4rem 0 0;
-  place-self: center;
-  width: 80vw;
+  padding: 1rem 2rem;
+  border-radius: 0;
+  background-color: var(--Blue50);
+  margin-top: 5rem;
+  /* place-self: center;
+  width: 80vw; */
 }
 .next-btn {
-  margin-top: 5rem;
-
   margin-left: auto;
 }
 

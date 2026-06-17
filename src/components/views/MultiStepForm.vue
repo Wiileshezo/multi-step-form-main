@@ -16,7 +16,7 @@ import DesktopSidebar from "./DesktopSidebar.vue";
   gap: 1rem;
   flex-direction: row;
   width: 70vw;
-  height: 70vh;
+  min-height: 70vh;
   margin-top: 5rem;
 }
 .card {
@@ -28,7 +28,7 @@ import DesktopSidebar from "./DesktopSidebar.vue";
   .multi-step-container {
     flex-direction: column;
     margin-top: -17vh;
-    height: max-content;
+    min-height: max-content;
   }
 
   .sidebar-container-mobile {
