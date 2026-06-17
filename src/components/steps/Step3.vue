@@ -6,8 +6,8 @@ const formStore = useFormStore();
 
 <template>
   <div class="display-flex justify-content-center direction-column gap1">
-    <h1 class="title-step2">Pick add-ons</h1>
-    <p class="desc-step2">Add-ons help enhance your experience.</p>
+    <h1 class="title-step">Pick add-ons</h1>
+    <p class="desc-step">Add-ons help enhance your experience.</p>
   </div>
 </template>
 

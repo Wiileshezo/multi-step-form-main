@@ -6,8 +6,8 @@ const formStore = useFormStore();
 
 <template>
   <div class="display-flex justify-content-center direction-column gap1">
-    <h1 class="title-step2">Select your plan</h1>
-    <p class="desc-step2">You have the option of monthly or yearly billing.</p>
+    <h1 class="title-step">Select your plan</h1>
+    <p class="desc-step">You have the option of monthly or yearly billing.</p>
     <div class="plan-container">
       <base-card class="plan-card display-flex gap1">
         <!-- :class="formStore.plan === 'Arcade' ? 'active' : ''"
@@ -72,11 +72,19 @@ const formStore = useFormStore();
   margin-block: 2rem;
 }
 .plan-card {
-  padding: 2rem 1rem;
+  padding: 2rem 1.7rem;
   border: solid var(--Grey500) 1px;
+  border-radius: 10px;
 }
 .icon-img {
   width: 3rem;
+}
+.plan-title {
+  margin-top: 1.5rem;
+}
+
+.plan {
+  border: solid var(--Blue950) 1px;
 }
 
 /* The container/track */
@@ -102,7 +110,7 @@ const formStore = useFormStore();
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--Blue950); /* Neutral Grey */
   transition: 0.4s;
   border-radius: 34px; /* Makes it round */
 }
