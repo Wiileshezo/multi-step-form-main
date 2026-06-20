@@ -1,7 +1,30 @@
 <script setup>
+import { computed } from "vue";
 import { useFormStore } from "@/store/formStore";
 
 const formStore = useFormStore();
+
+const arcadeClass = computed(() => ({
+  selectedPlan: formStore.Arcade,
+}));
+
+const advancedClass = computed(() => ({
+  selectedPlan: formStore.Advanced,
+}));
+
+const proClass = computed(() => ({
+  selectedPlan: formStore.Pro,
+}));
+
+const monthlyClass = computed(() => ({
+  "text-active": formStore.isMonthly,
+  "text-inactive": !formStore.isMonthly,
+}));
+
+const yearlyClass = computed(() => ({
+  "text-active": !formStore.isMonthly,
+  "text-inactive": formStore.isMonthly,
+}));
 </script>
 
 <template>
@@ -9,9 +32,11 @@ const formStore = useFormStore();
     <h1 class="title-step">Select your plan</h1>
     <p class="desc-step">You have the option of monthly or yearly billing.</p>
     <div class="plan-container">
-      <base-card class="plan-card display-flex gap1">
-        <!-- :class="formStore.plan === 'Arcade' ? 'active' : ''"
-        @click="formStore.plan = 'Arcade'" -->
+      <base-card
+        class="plan-card display-flex gap1"
+        @click="formStore.selectArcade()"
+        :class="arcadeClass"
+      >
         <img
           src="@/images/icon-arcade.svg"
           alt="Arcade Icon"
@@ -20,15 +45,16 @@ const formStore = useFormStore();
         <div class="display-flex direction-column">
           <h3 class="plan-title">Arcade</h3>
           <p class="plan-price">
-            <!-- {{ formStore.isYearly ? "$90/yr" : "$9/mo" }} -->
-            $9/mo
+            {{ formStore.arcadePrice }}
           </p>
-          <p class="plan-promo">2 months free</p>
+          <p class="plan-promo" v-if="formStore.isYearly">2 months free</p>
         </div>
       </base-card>
-      <base-card class="plan-card display-flex gap1">
-        <!-- :class="formStore.plan === 'Advanced' ? 'active' : ''"
-        @click="formStore.plan = 'Advanced'" -->
+      <base-card
+        class="plan-card display-flex gap1"
+        @click="formStore.selectAdvanced()"
+        :class="advancedClass"
+      >
         <img
           src="@/images/icon-advanced.svg"
           alt="Advanced Icon"
@@ -37,31 +63,33 @@ const formStore = useFormStore();
         <div class="display-flex direction-column">
           <h3 class="plan-title">Advanced</h3>
           <p class="plan-price">
-            <!-- {{ formStore.isYearly ? "$120/yr" : "$12/mo" }} -->
-            $12/mo
+            {{ formStore.advancedPrice }}
           </p>
-          <p class="plan-promo">2 months free</p>
+          <p class="plan-promo" v-if="formStore.isYearly">2 months free</p>
         </div>
       </base-card>
-      <base-card class="plan-card display-flex gap1">
-        <!-- :class="formStore.plan === 'Pro' ? 'active' : ''"
-        @click="formStore.plan = 'Pro'" -->
+      <base-card
+        class="plan-card display-flex gap1"
+        @click="formStore.selectPro()"
+        :class="proClass"
+      >
         <img src="@/images/icon-pro.svg" alt="Pro Icon" class="icon-img" />
         <div class="display-flex direction-column">
           <h3 class="plan-title">Pro</h3>
-          <!-- {{ formStore.isYearly ? "$150/yr" : "$15/mo" }} -->
-          <p class="plan-price">$15/mo</p>
-          <p class="plan-promo">2 months free</p>
+          <p class="plan-price">{{ formStore.proPrice }}</p>
+          <p class="plan-promo" v-if="formStore.isYearly">2 months free</p>
         </div>
       </base-card>
     </div>
-    <div class="display-flex align-items-center justify-content-center gap1">
-      <h3>Monthly</h3>
+    <div
+      class="display-flex align-items-center justify-content-center gap1 toggle-container"
+    >
+      <h3 :class="monthlyClass">Monthly</h3>
       <label class="switch">
-        <input type="checkbox" />
+        <input type="checkbox" v-model="formStore.isMonthly" />
         <span class="slider"></span>
       </label>
-      <h3>Yearly</h3>
+      <h3 :class="yearlyClass">Yearly</h3>
     </div>
   </div>
 </template>
@@ -75,6 +103,7 @@ const formStore = useFormStore();
   padding: 2rem 1.7rem;
   border: solid var(--Grey500) 1px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .icon-img {
   width: 3rem;
@@ -83,11 +112,31 @@ const formStore = useFormStore();
   margin-top: 1.5rem;
 }
 
-.plan {
-  border: solid var(--Blue950) 1px;
+.text-active {
+  color: var(--Blue950);
+  transition: 0.3s ease;
+}
+
+.text-inactive {
+  color: var(--Grey500);
+  transition: 0.3s ease;
+}
+
+h3,
+p {
+  line-height: 1.3;
+}
+
+.selectedPlan {
+  border: 2px solid var(--Blue950);
 }
 
 /* The container/track */
+.toggle-container {
+  background-color: var(--Blue100);
+  padding: 1rem;
+  border-radius: 10px;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -137,6 +186,9 @@ input:checked + .slider {
 
 /* Move the knob to the right when checked */
 input:checked + .slider::before {
+  transform: translateX(0px);
+}
+.slider::before {
   transform: translateX(26px);
 }
 
