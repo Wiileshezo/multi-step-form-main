@@ -26,8 +26,29 @@ export const useFormStore = defineStore("form", () => {
     phone: false,
   });
 
+  const Arcade = ref(true); // default selected
+  const Advanced = ref(false);
+  const Pro = ref(false);
+
+  const isMonthly = ref(true); // default
+  const isYearly = computed(() => !isMonthly.value);
+
+  const selectedPlan = ref("Arcade");
+
+  const arcadePrice = computed(() => (isMonthly.value ? "$9/mo" : "$90/yr"));
+
+  const advancedPrice = computed(() =>
+    isMonthly.value ? "$12/mo" : "$120/yr",
+  );
+
+  const proPrice = computed(() => (isMonthly.value ? "$15/mo" : "$150/yr"));
+
   // =================
   // actions - validation
+  // =================
+
+  // =================
+  // step 1
   // =================
   function addUser() {
     errors.name = false;
@@ -66,15 +87,56 @@ export const useFormStore = defineStore("form", () => {
     return true;
   }
 
+  // =================
+  // step 2
+  // =================
+
+  function selectArcade() {
+    Arcade.value = true;
+    Advanced.value = false;
+    Pro.value = false;
+
+    selectedPlan.value = "Arcade";
+  }
+
+  function selectAdvanced() {
+    Arcade.value = false;
+    Advanced.value = true;
+    Pro.value = false;
+
+    selectedPlan.value = "Advanced";
+  }
+
+  function selectPro() {
+    Arcade.value = false;
+    Advanced.value = false;
+    Pro.value = true;
+
+    selectedPlan.value = "Pro";
+  }
+
   function addPlan() {
+    if (!selectedPlan.value) {
+      isStep2Valid.value = false;
+      return false;
+    }
+
     isStep2Valid.value = true;
     return true;
   }
+
+  // =================
+  // step 3
+  // =================
 
   function addAddOns() {
     isStep3Valid.value = true;
     return true;
   }
+
+  // =================
+  // step 4
+  // =================
 
   function addSummary() {
     isStep4Valid.value = true;
@@ -138,6 +200,16 @@ export const useFormStore = defineStore("form", () => {
     form,
     errors,
 
+    Arcade,
+    Advanced,
+    Pro,
+    isMonthly,
+    isYearly,
+    arcadePrice,
+    advancedPrice,
+    proPrice,
+    selectedPlan,
+
     // validation state
     isStep1Valid,
     isStep2Valid,
@@ -148,11 +220,16 @@ export const useFormStore = defineStore("form", () => {
     showGoBack,
     showNextStep,
     nextBtn,
+
     // actions
     addUser,
     addPlan,
     addAddOns,
     addSummary,
+
+    selectArcade,
+    selectAdvanced,
+    selectPro,
 
     handleNext,
     nextStep,
