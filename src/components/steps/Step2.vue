@@ -31,7 +31,7 @@ const yearlyClass = computed(() => ({
   <div class="display-flex justify-content-center direction-column gap1">
     <h1 class="title-step">Select your plan</h1>
     <p class="desc-step">You have the option of monthly or yearly billing.</p>
-    <div class="plan-container">
+    <div class="plan-container gap1">
       <base-card
         class="plan-card display-flex gap1"
         @click="formStore.selectArcade()"
@@ -96,22 +96,25 @@ const yearlyClass = computed(() => ({
 
 <style scoped>
 .plan-container {
-  gap: 2rem;
   margin-block: 2rem;
 }
 .plan-card {
-  padding: 2rem 1.7rem;
+  padding: 1rem 2rem 1rem 1rem;
   border: solid var(--Grey500) 1px;
   border-radius: 10px;
   cursor: pointer;
+  flex-direction: row;
+  margin-bottom: 1rem;
 }
 .icon-img {
   width: 3rem;
 }
 .plan-title {
-  margin-top: 1.5rem;
+  margin-top: 0;
 }
-
+.plan-promo {
+  color: var(--Blue950);
+}
 .text-active {
   color: var(--Blue950);
   transition: 0.3s ease;
@@ -124,11 +127,11 @@ const yearlyClass = computed(() => ({
 
 h3,
 p {
-  line-height: 1.3;
+  line-height: 1.5rem;
 }
 
 .selectedPlan {
-  border: 2px solid var(--Blue950);
+  border: 3px solid var(--Blue950);
 }
 
 /* The container/track */
@@ -197,6 +200,12 @@ input:checked + .slider::before {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .plan-card {
+    flex-direction: column;
+  }
+  .plan-title {
+    margin-top: 2rem;
   }
 }
 </style>
