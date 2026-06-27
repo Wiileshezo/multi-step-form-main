@@ -96,7 +96,7 @@ const yearlyClass = computed(() => ({
 
 <style scoped>
 .plan-container {
-  margin-block: 2rem;
+  margin-block: 1rem;
 }
 .plan-card {
   padding: 1rem 2rem 1rem 1rem;
@@ -131,7 +131,7 @@ p {
 }
 
 .selectedPlan {
-  border: 3px solid var(--Blue950);
+  border: 2px solid var(--Purple600);
 }
 
 /* The container/track */

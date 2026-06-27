@@ -5,8 +5,8 @@ import DesktopSidebar from "./DesktopSidebar.vue";
 
 <template>
   <base-card class="multi-step-container display-flex card">
-    <desktop-sidebar></desktop-sidebar>
-    <step-navigation></step-navigation>
+    <desktop-sidebar class="sidebar-width"></desktop-sidebar>
+    <step-navigation class="step-width"></step-navigation>
   </base-card>
 </template>
 
@@ -22,6 +22,15 @@ import DesktopSidebar from "./DesktopSidebar.vue";
 .card {
   background: var(--White);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar-width {
+  width: 30%;
+  max-width: 300px;
+}
+.step-width {
+  width: 100%;
+  max-width: 940px;
+  padding: 16px;
 }
 
 @media (max-width: 770px) {

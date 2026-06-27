@@ -57,7 +57,7 @@ const currentComponent = computed(() => steps[formStore.step]);
 }
 
 .next-btn {
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   margin-left: auto;
 }

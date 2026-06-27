@@ -37,8 +37,8 @@ export const useFormStore = defineStore("form", () => {
 
   const arcadePrice = computed(() => (isMonthly.value ? "$9/mo" : "$90/yr"));
 
-  const advancedPrice = computed(() =>
-    isMonthly.value ? "$12/mo" : "$120/yr",
+  const advancedPrice = computed(
+    () => (isMonthly.value ? "$12/mo" : "$120/yr"), //real number????1!!!!!!!
   );
 
   const proPrice = computed(() => (isMonthly.value ? "$15/mo" : "$150/yr"));
