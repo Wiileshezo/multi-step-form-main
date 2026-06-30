@@ -23,7 +23,7 @@ const currentComponent = computed(() => steps[formStore.step]);
 </script>
 
 <template>
-  <div class="step-navigation-container display-flex gap1">
+  <div class="step-navigation-container display-flex direction-column gap1">
     <form @submit.prevent>
       <KeepAlive>
         <component :is="currentComponent" />
@@ -52,12 +52,15 @@ const currentComponent = computed(() => steps[formStore.step]);
 
 <style scoped>
 .step-navigation-container {
-  justify-content: center;
   flex-grow: 1;
+  justify-content: flex-end;
+  height: 100%;
+  margin: auto;
+  padding-inline: 5rem;
 }
 
 .next-btn {
-  margin-top: 3rem;
+  margin-top: 5rem;
 
   margin-left: auto;
 }

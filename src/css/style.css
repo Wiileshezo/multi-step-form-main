@@ -84,6 +84,7 @@ body {
 }
 .desc-step {
   font-size: clamp(1rem, 3vw, 1.3rem);
+  line-height: 2rem;
 }
 
 .btn-card {

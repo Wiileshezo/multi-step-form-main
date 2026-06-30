@@ -30,7 +30,7 @@ import DesktopSidebar from "./DesktopSidebar.vue";
 .step-width {
   width: 100%;
   max-width: 940px;
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 @media (max-width: 770px) {
